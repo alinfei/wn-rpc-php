@@ -4,7 +4,7 @@ RPC（Remote Procedure Call Protocol）——远程过程调用协议，它是�
 RPC采用客户机/服务器模式。请求程序就是一个客户机，而服务提供程序就是一个服务器。首先，客户机调用进程发送一个有进程参数的调用信息到服务进程，然后等待应答信息。在服务器端，进程保持睡眠状态直到调用信息到达为止。当一个调用信息到达，服务器获得进程参数，计算结果，发送答复信息，然后等待下一个调用信息，最后，客户端调用进程接收答复信息，获得进程结果，然后调用执行继续进行。
 有多种 RPC模式和执行。最初由 Sun 公司提出。IETF ONC 宪章重新修订了 Sun 版本，使得 ONC RPC 协议成为 IETF 标准协议。现在使用最普遍的模式和执行是开放式软件基础的分布式计算环境（DCE）。[百度百科](http://baike.baidu.com/link?url=biFWaN66mb_2XrFxrVnOUhPMF_r0h1EN-_BihQH5CPo0Psp3q0BATbLx1WOpwNBf9m0TDXnUhSIP3L74c1ruGj3IdOU4oTY80oQm8Yr4Qjq)
 ##Thrift框架
-  Thrift、dubbo、Hessian等。
+流行的RPC框架有:Thrift(FaceBook->Apache)、dubbo(阿里)、Hessian等。
 
 &#160; &#160; &#160; &#160;
 thrift是一个软件框架，用来进行可扩展且跨语言的服务的开发。它结合了功能强大的软件堆栈和代码生成引擎，以构建在 C++, Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, JavaScript, Node.js, Smalltalk, and OCaml 这些编程语言间无缝结合的、高效的服务。
