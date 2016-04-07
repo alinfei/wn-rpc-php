@@ -15,10 +15,7 @@ require_once __DIR__."/../../../util.php";
 //引入Thrift库文件
 require_once $WN_RPC_CONFIG['thrift_lib_location']. '/Thrift/ClassLoader/ThriftClassLoader.php';
 
-//注册Thrift类加载器
-$loader = new ThriftClassLoader();
-$loader->registerNamespace('Thrift',$WN_RPC_CONFIG['thrift_lib_location']);
-$loader->register();
+
 
 /**
  * 微农RPC客户端工具类
@@ -32,6 +29,26 @@ $loader->register();
  * @package com\weinong\baserpc
  */
 class WNRpcClient{
+
+	private static $thriftClassLoader;
+	private static $isRigstered = false;
+
+	public static function registerDefinition($defs=array()){
+		if(!self::$thriftClassLoader){
+			self::$thriftClassLoader = new ThriftClassLoader();
+			global $WN_RPC_CONFIG;
+			self::$thriftClassLoader->registerNamespace('Thrift',$WN_RPC_CONFIG['thrift_lib_location']);
+		}
+
+		foreach($defs as $def){
+			if(is_array($def) && sizeof($def)>=2){
+				self::$thriftClassLoader->registerDefinition($def[0],$def[1]);
+			}
+		}
+		self::$thriftClassLoader->register();
+		self::$isRigstered = true;
+
+	}
 
 	private $transport;//传输通道
 	private $protocol;//二进制协议
@@ -105,6 +122,11 @@ class WNRpcClient{
 	 * @return WNRpcClient
 	 */
 	public static function getWNRpcClient($host,$port,$namespaceDir=null){
+
+		if(!self::$isRigstered){
+			self::registerDefinition();
+		}
+
 		$key = $host.":".$port;
 		if(!isset(self::$_instances[$key])){
 
