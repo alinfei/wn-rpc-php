@@ -5,11 +5,13 @@ RPC采用客户机/服务器模式。请求程序就是一个客户机，而服�
 有多种 RPC模式和执行。最初由 Sun 公司提出。IETF ONC 宪章重新修订了 Sun 版本，使得 ONC RPC 协议成为 IETF 标准协议。现在使用最普遍的模式和执行是开放式软件基础的分布式计算环境（DCE）。[百度百科](http://baike.baidu.com/link?url=biFWaN66mb_2XrFxrVnOUhPMF_r0h1EN-_BihQH5CPo0Psp3q0BATbLx1WOpwNBf9m0TDXnUhSIP3L74c1ruGj3IdOU4oTY80oQm8Yr4Qjq)
 ##Thrift框架
 流行的RPC框架有:Thrift(FaceBook->Apache)、dubbo(阿里)、Hessian等。
-
 &#160; &#160; &#160; &#160;
 thrift是一个软件框架，用来进行可扩展且跨语言的服务的开发。它结合了功能强大的软件堆栈和代码生成引擎，以构建在 C++, Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, JavaScript, Node.js, Smalltalk, and OCaml 这些编程语言间无缝结合的、高效的服务。
 
-##wn-rpc-php
+##wn-rpc-php的使用
+###下载Thrift
+[Thrift9.0.3下载地址](http://www.apache.org/dyn/closer.cgi?path=/thrift/0.9.3/thrift-0.9.3.exe)<br/>
+下载后放入合适的位置，配置PATH。
 ###编写idl文(接口描述语言)<br/>
 bean.thrift
 ```idl
