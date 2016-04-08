@@ -195,7 +195,6 @@ class WNRpcClient{
 
 			$apiName = $result[1];
 			$apiName = ucfirst($apiName);
-			echo $apiName;
 			return $this->getWNRpcApiClient($namespaceDir."\\".$apiName."Client",$apiName);
 		}
 		else throw new \ErrorException("not found function:" . $name);
